@@ -1,3 +1,20 @@
+<h1>Databinding über Getter</h1>
 <p>
+  Hello {{displayName}}
+</p>
+<h1>Kontrollstruktur *ngIf</h1>
+<p *ngIf="name">
   Hello {{ name }}!
+</p>
+<p *ngIf="!name">
+  Hello World!
+</p>
+<h1>Kontrollstruktur *ngFor</h1>
+<p *ngFor="let nameItem of names">
+  Hello {{nameItem}}!
+</p>
+<p>
+  <ng-container *ngFor="let nameItem of names">
+    Hello {{nameItem}}
+  </ng-container>
 </p>

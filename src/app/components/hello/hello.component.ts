@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -7,12 +7,22 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
-  name: string = 'Alex';
+  @Input()
+  name: string;
+
+  names: string[] = ['Benjamin', 'Alex', 'Sigrid'];
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  get displayName(): string {
+    if (this.name) {
+      return this.name;
+    }
+    return 'World';
   }
 
 }
