@@ -4,6 +4,13 @@
 
 
 <main role="main" class="container">
-  <app-hello [name]="findName()"></app-hello>
-  <app-hello ></app-hello>
+  <div class="row">
+    <div class="col-sm-3">
+      <app-hello [name]="findName()"></app-hello>
+      <app-hello></app-hello>
+    </div>
+    <div class="col-sm-3">
+      <app-hello2></app-hello2>
+    </div>
+  </div>
 </main>
