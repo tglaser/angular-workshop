@@ -1,3 +1,4 @@
+import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { NameInputComponent } from './components/name-input/name-input.component
 import { Hello3Component } from './components/hello3/hello3.component';
 import { Hello4Component } from './components/hello4/hello4.component';
 import { ForbiddenNameValidatorDirective } from './directives/forbidden-name-validator.directive';
+import { WeatherComponent } from './components/weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { ForbiddenNameValidatorDirective } from './directives/forbidden-name-val
     NameInputComponent,
     Hello3Component,
     Hello4Component,
-    ForbiddenNameValidatorDirective
+    ForbiddenNameValidatorDirective,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
