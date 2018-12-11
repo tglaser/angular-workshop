@@ -1,8 +1,6 @@
-import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 import {WeatherData} from '../../models/weather-data';
+import {WeatherService} from '../../services/weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -13,7 +11,7 @@ export class WeatherComponent implements OnInit {
 
   weatherData: WeatherData;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit() {
@@ -21,11 +19,7 @@ export class WeatherComponent implements OnInit {
   }
 
   fetchWeatherData() {
-    this.httpClient.get(
-      'http://api.openweathermap.org/data/2.5/weather?q=Karlsruhe,de&units=metric&APPID=faf17d6bfe1477a97755d5134779e59c'
-    ).pipe(
-      map(value => value['main'] as WeatherData)
-    ).subscribe((value: WeatherData) => this.weatherData = value);
+    this.weatherService.fetchWeatherData().subscribe((value: WeatherData) => this.weatherData = value);
   }
 
 }
