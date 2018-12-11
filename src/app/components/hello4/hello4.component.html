@@ -6,15 +6,26 @@
   </div>
   <div class="row">
     <div class="col">
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit()" #nameForm="ngForm">
         <input
         type="text"
         class="form-control"
         name="userName"
+        required
+        #nameInput="ngModel"
         [(ngModel)]="userName">
+        <div class="alert alert-danger"
+        [hidden]="nameInput.valid || nameInput.pristine"
+        >
+          Ohne Namen kann ich nicht weitermachen!
+        </div>
+
+
+
         <button
         class="btn btn-primary"
         type="submit"
+        [disabled]="nameForm.form.invalid"
         >
          grüße mich!
         </button>
