@@ -1,6 +1,12 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MockComponent} from 'ng-mocks';
+import {AppComponent} from './app.component';
+import {HelloComponent} from './components/hello/hello.component';
+import {Hello2Component} from './components/hello2/hello2.component';
+import {Hello3Component} from './components/hello3/hello3.component';
+import {Hello4Component} from './components/hello4/hello4.component';
+import {WeatherComponent} from './components/weather/weather.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,7 +15,12 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        MockComponent(HelloComponent),
+        MockComponent(Hello2Component),
+        MockComponent(Hello3Component),
+        MockComponent(Hello4Component),
+        MockComponent(WeatherComponent)
       ],
     }).compileComponents();
   }));
@@ -20,16 +31,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'fiducia-example'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('fiducia-example');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to fiducia-example!');
-  });
 });
