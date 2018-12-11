@@ -9,6 +9,7 @@ import { Hello2Component } from './components/hello2/hello2.component';
 import { NameInputComponent } from './components/name-input/name-input.component';
 import { Hello3Component } from './components/hello3/hello3.component';
 import { Hello4Component } from './components/hello4/hello4.component';
+import { ForbiddenNameValidatorDirective } from './directives/forbidden-name-validator.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { Hello4Component } from './components/hello4/hello4.component';
     Hello2Component,
     NameInputComponent,
     Hello3Component,
-    Hello4Component
+    Hello4Component,
+    ForbiddenNameValidatorDirective
   ],
   imports: [
     BrowserModule,

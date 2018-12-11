@@ -12,12 +12,18 @@
         class="form-control"
         name="userName"
         required
+        appForbiddenNameValidator
         #nameInput="ngModel"
         [(ngModel)]="userName">
         <div class="alert alert-danger"
-        [hidden]="nameInput.valid || nameInput.pristine"
+        [hidden]="nameInput.valid || nameInput.pristine || nameInput.errors['forbiddenName']"
         >
           Ohne Namen kann ich nicht weitermachen!
+        </div>
+        <div class="alert alert-danger"
+             [hidden]="nameInput.valid || nameInput.pristine || nameInput.errors['required']"
+        >
+          Der Name Alex ist nicht erlaubt!
         </div>
 
 
